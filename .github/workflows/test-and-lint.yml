@@ -30,6 +30,7 @@ jobs:
         run: poetry install
 
       - id: install-jtd-codegen
+        shell: bash
         run: |
           # Download and unpack jtd-codegen
           jtd_codegen_archive_url=$(curl https://api.github.com/repos/jsontypedef/json-typedef-codegen/releases | jq '.[0].assets.[] | select(.name | test("linux-gnu"))' | jq -r '.browser_download_url')
