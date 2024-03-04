@@ -2,6 +2,50 @@
 
 
 
+## [0.8.0](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v0.7.0...jtd-codebuild-v0.8.0) (2024-03-04)
+
+
+### Features
+
+* add allow duplicate defs options ([cb1518c](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/cb1518cc82f2c762a4825097830280aa336cb9ec))
+* add camel case property name option in python generation option ([2f8b745](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/2f8b7459c9f610b811c820ff90532ec145ba4ab7))
+* add inheritance ([5dd1c8a](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/5dd1c8ad32ed73c0dd5d161249e6a3cee0a11144))
+* add json support ([074dcc8](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/074dcc8377c66cb3883e166c92fc0ea7876ef29e))
+* add jtd_codebuild ([891cb9b](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/891cb9ba8c2796e821b9db21186ffcdc2c3462bf))
+* add typeddict option to python generator ([7c9fab8](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/7c9fab831f5dd21e9b2a71cb36d64254261a526f))
+* subscriptable dataclass for python codegen ([e58f201](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/e58f20140f21fa523e52356093007cb6bf82aef4))
+* support for multiple definitions ([a82f2eb](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/a82f2eb27e23ca4838000221dda990a18cd6fa81))
+
+
+### Bug Fixes
+
+* add pydantic as optional deps ([1db182f](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/1db182f8e90b18b73b0aab56b38e866ce3043836))
+* create definitions only if definitions key is not present at root schema ([9a648d0](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/9a648d0dd155d1536e7f3c718409b6191b758ddb))
+* install ci packages to run semantic releases ([2e152b1](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/2e152b171e850e27b26067fed257e21bdd3cc47a))
+* pydantic as testing deps as we don't need it in actuall usage ([1c8a521](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/1c8a52134b9fea86a7b87b5d46f035dbbc36e559))
+
+
+### Dependencies
+
+* update classifiers up to python 13 ([be6ba92](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/be6ba928b7ac96bb56f784889d818c1c59026826))
+* update python version for wider support ([07be703](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/07be703fbfc4bddfdf73f81da7de093ca42d8636))
+
+
+### Documentation
+
+* [no ci] contributing docs ([1b961c4](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/1b961c4410f3ffbb57042fcfec9a7872782447ce))
+* add badges ([638b473](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/638b473be784b3f62e73331832b13e3d54488839))
+* add badges ([cb13e59](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/cb13e594a4a211e64bfcaa1218702eb08f65581d))
+* add badges ([a796a1f](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/a796a1feb3453eaf1eac9765dc041556b14b1b3f))
+* add badges ([30740b3](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/30740b3455bd92a81e3f3ee3c161fc9c43485975))
+* add badges ([1b9fc9c](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/1b9fc9cec2f578fbabe01e85bcc3147eb898f8b2))
+* add badges ([f467899](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/f467899034dd5ce0a0f53202fd35a74b2e3ddcb6))
+* add docs for examples [no ci] ([92141b5](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/92141b5901d2153707dc4a5e85b716c9ca6fce98))
+* for extends feature ([2a9ba5a](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/2a9ba5a850c5937f3255e990cb5929f1022a467e))
+* pydantic ([cfc538c](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/cfc538c265b2174835191a33317870ffe5e4b7af))
+* update docs for subscriptable feature ([2fe25c7](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/2fe25c7843e6c8793e59b4c9d4b5c664f24817ba))
+* update readme ([4f0d48b](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/4f0d48b0a0756df36d349a2f9b8f57b6d4110206))
+
 ## v0.7.0 (2024-01-12)
 
 ### Documentation
