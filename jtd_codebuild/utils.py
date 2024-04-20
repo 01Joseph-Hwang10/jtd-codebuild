@@ -63,7 +63,7 @@ def file_is_yaml(file: str) -> bool:
     Returns:
         True if the file is a YAML file, False otherwise.
     """
-    return file.endswith(".yaml") or file.endswith(".yml")
+    return file.endswith((".yaml", ".yml"))
 
 
 def file_is_json(file: str) -> bool:
