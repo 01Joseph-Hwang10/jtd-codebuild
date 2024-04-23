@@ -48,13 +48,10 @@ def jtd_codebuild(cwd: str) -> None:
 
         target_language = target["language"]
         if target_language == "typescript":
-            # Case: TypeScript
             generator = JTDCodeGeneratorTypescriptTarget(cwd, output_path)
         elif target_language == "python":
-            # Case: Python
             generator = JTDCodeGeneratorPythonTarget(cwd, output_path)
         else:
-            # Default case
             generator = JTDCodeGenerator(cwd, output_path)
 
         processes.extend(generator.generate(target))
