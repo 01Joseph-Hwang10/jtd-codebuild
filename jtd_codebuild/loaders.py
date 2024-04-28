@@ -5,7 +5,7 @@ import itertools
 from os.path import join
 from typing import Dict, AnyStr, Any
 from .config import get_config
-from .utils import file_is_yaml, file_is_json
+from .utils.fs import file_is_yaml, file_is_json
 
 
 def load_definitions(cwd: str) -> Dict[AnyStr, Any]:

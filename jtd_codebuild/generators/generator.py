@@ -1,7 +1,7 @@
 import os
 import subprocess
 from typing import Dict, Any, AnyStr, List
-from ..utils import safe_mkdir
+from ..utils.fs import safe_mkdir
 
 
 class JTDCodeGenerator:

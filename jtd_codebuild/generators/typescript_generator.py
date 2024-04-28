@@ -1,7 +1,7 @@
 import os
 import subprocess
 from typing import Dict, Any, AnyStr, List
-from ..utils import wait_for_processes
+from ..utils.process import wait_for_processes
 from .generator import JTDCodeGenerator
 
 

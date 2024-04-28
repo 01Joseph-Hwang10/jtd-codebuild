@@ -5,7 +5,8 @@ from typing import List
 from .bundle import bundle_schema
 from .config import get_config
 from .inheritance import resolve_inheritance
-from .utils import safe_open, wait_for_processes
+from .utils.fs import safe_open
+from .utils.process import wait_for_processes
 from .generators import (
     JTDCodeGenerator,
     JTDCodeGeneratorTypescriptTarget,

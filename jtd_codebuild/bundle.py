@@ -3,7 +3,7 @@ from os.path import join
 from typing import Dict, AnyStr, Any
 from .loaders import load_definitions, load_root_schema
 from .config import get_config
-from .utils import get_items
+from .utils.mapping import get_items
 
 
 def bundle_schema(cwd: str) -> Dict[AnyStr, Any]:

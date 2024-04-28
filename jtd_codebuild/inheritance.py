@@ -1,6 +1,6 @@
 from functools import reduce
 from typing import Dict, AnyStr, Any
-from .utils import deep_merge
+from .utils.mapping import deep_merge
 
 
 def _resolve_inheritance_recursively(

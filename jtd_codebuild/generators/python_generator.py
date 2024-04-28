@@ -5,7 +5,7 @@ import subprocess
 from typing import Dict, Any, AnyStr, List
 from io import TextIOWrapper
 from caseconverter.camel import camelcase
-from ..utils import wait_for_processes
+from ..utils.process import wait_for_processes
 from .generator import JTDCodeGenerator
 
 
