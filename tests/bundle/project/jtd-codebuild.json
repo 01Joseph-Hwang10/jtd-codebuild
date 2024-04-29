@@ -6,5 +6,6 @@
   "jtdBundlePath": "gen/schema.jtd.json",
   "duplicate": "error",
   "propertyFormat": "snake",
-  "targets": []
+  "targets": [],
+  "$schema": "https://raw.githubusercontent.com/01Joseph-Hwang10/jtd-codebuild/master/jtd_codebuild/config/project/config.json"
 }
