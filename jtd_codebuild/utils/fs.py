@@ -1,8 +1,9 @@
-import os
-from typing import Any, AnyStr
+from os import makedirs
+from os.path import join, dirname, isabs
+from io import TextIOWrapper
 
 
-def file_is_yaml(file: AnyStr) -> bool:
+def file_is_yaml(file: str) -> bool:
     """Check if a file is a YAML file.
 
     Args:
@@ -14,7 +15,7 @@ def file_is_yaml(file: AnyStr) -> bool:
     return file.endswith((".yaml", ".yml"))
 
 
-def file_is_json(file: AnyStr) -> bool:
+def file_is_json(file: str) -> bool:
     """Check if a file is a JSON file.
 
     Args:
@@ -26,16 +27,16 @@ def file_is_json(file: AnyStr) -> bool:
     return file.endswith(".json")
 
 
-def safe_mkdir(path: AnyStr) -> None:
+def safe_mkdir(path: str) -> None:
     """Create a directory with creating its parent directories if they do not exist.
 
     Args:
         path: The directory path.
     """
-    os.makedirs(path, exist_ok=True)
+    makedirs(path, exist_ok=True)
 
 
-def safe_open(file_path: AnyStr, mode: AnyStr) -> Any:
+def safe_open(file_path: str, mode: str) -> TextIOWrapper:
     """Open a file with creating its parent directories if they do not exist.
 
     Args:
@@ -45,5 +46,9 @@ def safe_open(file_path: AnyStr, mode: AnyStr) -> Any:
     Returns:
         The opened file.
     """
-    safe_mkdir(os.path.dirname(file_path))
+    safe_mkdir(dirname(file_path))
     return open(file_path, mode)
+
+
+def resolve(cwd: str, path: str) -> str:
+    return path if isabs(path) else join(cwd, path)

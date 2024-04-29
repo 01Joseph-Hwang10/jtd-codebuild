@@ -1,0 +1,31 @@
+{
+  "include": [
+    // Add paths to directories containing JTD files to include in the
+    // generated code.
+    "<projectRoot>/src"
+  ],
+  "references": [
+    // You can specify paths to project directories that contain "jtd-codebuild.json"
+    // files to include in the generated code. 
+    "<workspaceRoot>/path/to/another/jtd-codebuild/project"
+  ],
+  "jtdBundlePath": "gen/schema.jtd.json",
+  "duplicate": "error",
+  "propertyFormat": "snake",
+  "targets": [
+    // Below is an example of a target for generating Python dataclasses.
+    // You can add more targets for other languages by copying and pasting
+    // this block and changing the values as needed.
+    {
+      "language": "python",
+      "path": "gen/python",
+      "typingBackend": "dataclass",
+      "subscriptable": true
+    },
+    {
+      "language": "typescript",
+      "path": "gen/typescript",
+      "propertyFormat": "camel"
+    }
+  ]
+}

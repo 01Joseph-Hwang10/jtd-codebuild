@@ -9,11 +9,15 @@
 
 jtd-codebuild is a tool for generating language specific schemas and interfaces code from JSON Type Definition IDL files in either yaml or json format.
 
-This tool is built on top of [`jtd-codegen`](https://jsontypedef.com/) so check out the documentation if you don't have a clue about JSON Type Definition.
+This tool is built on top of [jtd-codegen](https://jsontypedef.com/docs/jtd-codegen/) so check out the documentation if you don't have a clue about JSON Type Definition.
 
-## Prerequisites
+## Quickstart
 
-- [jtd-codegen](https://jsontypedef.com/docs/jtd-codegen/)
+First, initialize the configuration file by running the command below.
+
+```bash
+jtd-codebuild --init
+```
 
 ## Installation
 

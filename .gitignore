@@ -11,7 +11,3 @@ venv
 # Python
 *.py[cod]
 __pycache__
-
-# Artifacts
-dist
-build

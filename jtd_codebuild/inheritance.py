@@ -1,68 +1,65 @@
 from functools import reduce
-from typing import Dict, AnyStr, Any
-from .utils.mapping import deep_merge
+from deepmerge import always_merger
+from jtd_codebuild.component import Component
 
 
-def _resolve_inheritance_recursively(
-    schema: Dict[AnyStr, Any],
-    defname: AnyStr,
-    definition: Dict[AnyStr, Any],
-) -> Dict[AnyStr, Any]:
-    """Resolve inheritance recursively.
+class InheritanceResolver(Component):
+    def resolve(self, schema: dict) -> dict:
 
-    Args:
-        schema: The schema to resolve inheritance for.
-        defname: The name of the definition to resolve inheritance for.
-        definition: The definition to resolve inheritance for.
+        def resolve_inheritance_recursively(
+            schema: dict,
+            name: str,
+            definition: dict,
+        ) -> dict:
+            """Resolve inheritance recursively.
 
-    Returns:
-        The definition with inheritance resolved.
-    """
-    if "extends" not in definition:
-        return definition
+            Args:
+                schema: The schema to resolve inheritance for.
+                name: The name of the definition to resolve inheritance for.
+                definition: The definition to resolve inheritance for.
 
-    # We reverse the order of the inherited defnames
-    # as we want to follow python like module resolution order
-    inherited_defnames = reversed(
-        definition["extends"]
-        if isinstance(definition["extends"], list)
-        else [definition["extends"]]
-    )
+            Returns:
+                The definition with inheritance resolved.
+            """
+            if "extends" not in definition:
+                return definition
 
-    # Resolve inheritance for each inherited definition
-    inherited_definitions = [
-        _resolve_inheritance_recursively(
-            schema,
-            inherited_defname,
-            schema["definitions"][inherited_defname],
-        )
-        for inherited_defname in inherited_defnames
-    ]
+            # We reverse the order of the inherited defnames
+            # as we want to follow python like module resolution order
+            inherited_definitions = reversed(
+                definition["extends"]
+                if isinstance(definition["extends"], list)
+                else [definition["extends"]]
+            )
 
-    # Merge the inherited definitions into the definition
-    merged_definition = reduce(deep_merge, inherited_definitions, definition)
+            # Resolve inheritance for each inherited definition
+            inherited_definitions = [
+                resolve_inheritance_recursively(
+                    schema,
+                    inherited_definition,
+                    schema["definitions"][inherited_definition],
+                )
+                for inherited_definition in inherited_definitions
+            ]
 
-    # Update the definition in the schema
-    schema["definitions"][defname] = merged_definition
+            # Merge the inherited definitions into the definition
+            merged_definition = reduce(
+                always_merger.merge,
+                inherited_definitions,
+                definition,
+            )
 
-    # Delete extends key from the definition
-    schema["definitions"][defname].pop("extends", None)
+            # Update the definition in the schema
+            schema["definitions"][name] = merged_definition
 
-    # Return the merged definition
-    return merged_definition
+            # Delete extends key from the definition
+            schema["definitions"][name].pop("extends", None)
 
+            # Return the merged definition
+            return merged_definition
 
-def resolve_inheritance(schema: Dict[AnyStr, Any]) -> Dict[AnyStr, Any]:
-    """Resolve inheritance in the schema.
+        for name, definition in schema["definitions"].items():
+            if "extends" in definition:
+                resolve_inheritance_recursively(schema, name, definition)
 
-    Args:
-        schema: The schema to resolve inheritance for.
-
-    Returns:
-        The schema with inheritance resolved.
-    """
-    for defname, definition in schema["definitions"].items():
-        if "extends" in definition:
-            _resolve_inheritance_recursively(schema, defname, definition)
-
-    return schema
+        return schema

@@ -32,6 +32,9 @@ pyyaml = "^6.0.1"
 click = "^8.1.7"
 case-converter = "^1.1.0"
 toolz = "^0.12.1"
+deepmerge = "^1.1.1"
+joblib = "^1.4.0"
+pydantic = "^2.7.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1.0"

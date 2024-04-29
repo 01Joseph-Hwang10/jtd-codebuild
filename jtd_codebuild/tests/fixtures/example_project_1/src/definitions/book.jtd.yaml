@@ -1,9 +1,0 @@
-book:
-  properties:
-    id:
-      type: string
-    name:
-      type: string
-    tableOfContents:
-      elements:
-        type: string

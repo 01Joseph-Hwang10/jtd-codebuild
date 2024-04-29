@@ -1,3 +1,4 @@
 # flake8: noqa: F401
 
-from ._apply import applyif
+from ._string import replace
+from ._list import filterlist, chain
