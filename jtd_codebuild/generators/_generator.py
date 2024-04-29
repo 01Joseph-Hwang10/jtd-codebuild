@@ -39,7 +39,7 @@ class JTDCodeGenerator(Component, metaclass=abc.ABCMeta):
         Returns:
             The command to generate code.
         """
-        schema_path = self.get_schema_path(target)
+        schema_path = self.get_schema_path()
         output_dir = self.get_target_path(target)
         target_language = target.language
         return f"jtd-codegen {schema_path} --{target_language}-out {output_dir}"
@@ -62,7 +62,7 @@ class JTDCodeGenerator(Component, metaclass=abc.ABCMeta):
         )
         process.wait()
 
-    def get_schema_path(self, target: Target) -> str:
+    def get_schema_path(self) -> str:
         return resolve(self.cwd, self.schema_path)
 
     def get_target_path(self, target: Target) -> str:

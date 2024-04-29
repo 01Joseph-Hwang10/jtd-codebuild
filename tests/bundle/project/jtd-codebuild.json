@@ -1,0 +1,10 @@
+{
+  "include": [
+    "<projectRoot>/src"
+  ],
+  "references": [],
+  "jtdBundlePath": "gen/schema.jtd.json",
+  "duplicate": "error",
+  "propertyFormat": "snake",
+  "targets": []
+}

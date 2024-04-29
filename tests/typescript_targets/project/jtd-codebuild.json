@@ -1,0 +1,24 @@
+{
+  "include": [
+    "src"
+  ],
+  "references": [],
+  "jtdBundlePath": "gen/schema.jtd.json",
+  "targetProcessingStrategy": "serial",
+  "targets": [
+    {
+      "language": "typescript",
+      "path": "gen/typescript/plain"
+    },
+    {
+      "language": "typescript",
+      "path": "gen/typescript/camel",
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "typescript",
+      "path": "gen/typescript/snake",
+      "propertyFormat": "snake"
+    }
+  ]
+}

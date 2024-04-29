@@ -1,0 +1,6 @@
+{
+  "include": ["src"],
+  "references": [],
+  "jtdBundlePath": "gen/schema.jtd.json",
+  "targets": []
+}

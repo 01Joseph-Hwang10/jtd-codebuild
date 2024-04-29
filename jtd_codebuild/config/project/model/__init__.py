@@ -12,4 +12,4 @@ from ._target import (
     RubyTarget,
 )
 from ._config import ProjectConfig
-from ._types import DuplicatePolicy, PropertyFormat, Language
+from ._types import DuplicatePolicy, PropertyFormat, Language, TargetProcessingStrategy

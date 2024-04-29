@@ -11,4 +11,8 @@ def replace(old: str, new: str) -> Callable[[str], str]:
     Returns:
         A function that replaces `old` with `new` in a string.
     """
-    return lambda s: s.replace(old, new)
+
+    def replacer(source: str) -> str:
+        return source.replace(old, new)
+
+    return replacer

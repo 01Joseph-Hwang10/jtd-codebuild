@@ -1,5 +1,5 @@
 import json
-from os.path import join
+from os.path import join, dirname
 from toolz import pipe
 from jtd_codebuild.utils.io import read_json
 from jtd_codebuild.utils.function import replace
@@ -27,7 +27,13 @@ def get_project_config(
         read_json(join(cwd, CONFIG_NAME)),
         json.dumps,
         replace(project_root, cwd),
-        replace(workspace_root, find_workspace_config_path(cwd)),
+        replace(
+            workspace_root,
+            pipe(
+                find_workspace_config_path(cwd),
+                lambda path: path and dirname(path) or cwd,
+            ),
+        ),
         json.loads,
     )
     return ProjectConfig(**config)

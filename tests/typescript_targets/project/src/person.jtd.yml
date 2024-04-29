@@ -1,0 +1,12 @@
+Person:
+  properties:
+    id:
+      type: string
+
+      metadata:
+        description: The unique identifier of the person.
+    name:
+      type: string
+
+      metadata:
+        description: The name of the person.

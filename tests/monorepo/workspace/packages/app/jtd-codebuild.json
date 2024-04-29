@@ -1,0 +1,46 @@
+{
+  "include": [
+    "src"
+  ],
+  "references": [
+    "<workspaceRoot>/packages/lib"
+  ],
+  "jtdBundlePath": "gen/schema.jtd.json",
+  "targets": [
+    {
+      "language": "python",
+      "typingBackend": "dataclass",
+      "path": "<projectRoot>/gen/python"
+    },
+    {
+      "language": "typescript",
+      "path": "<projectRoot>/gen/typescript"
+    },
+    {
+      "language": "go",
+      "path": "<projectRoot>/gen/go",
+      "package": "yourmodule"
+    },
+    {
+      "language": "csharp",
+      "typingBackend": "System.Text.Json",
+      "path": "<projectRoot>/gen/csharp",
+      "namespace": "YourNamespace"
+    },
+    {
+      "language": "java",
+      "typingBackend": "jackson",
+      "path": "<projectRoot>/gen/java",
+      "package": "com.yourcompany.yourpackage"
+    },
+    {
+      "language": "rust",
+      "path": "<projectRoot>/gen/rust"
+    },
+    {
+      "language": "ruby",
+      "path": "<projectRoot>/gen/ruby",
+      "module": "YourModule"
+    }
+  ]
+}

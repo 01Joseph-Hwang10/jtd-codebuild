@@ -15,13 +15,13 @@ def cli(ctx: Context, path: str):
 
 
 @cli.command("init")
+@click.pass_context
 @click.option(
     "--preset",
     "-p",
     type=click.Choice(["config", "module", "workspace"]),
     default="config",
 )
-@click.pass_context
 def init(ctx: Context, preset: str):
     path = ctx.obj["path"]
-    InitCommand.run(path, preset)
+    InitCommand().run(path, preset)

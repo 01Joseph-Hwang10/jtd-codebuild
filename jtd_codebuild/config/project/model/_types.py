@@ -7,7 +7,8 @@ Language: TypeAlias = Literal[
     "typescript",
     "go",
     "rust",
-    "csharp-system-text",
+    "csharp",
     "ruby",
-    "java-jackson",
+    "java",
 ]
+TargetProcessingStrategy: TypeAlias = Literal["parallel", "serial"]

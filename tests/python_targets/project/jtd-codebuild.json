@@ -1,0 +1,138 @@
+{
+  "include": [
+    "src"
+  ],
+  "references": [],
+  "jtdBundlePath": "gen/schema.jtd.json",
+  "targetProcessingStrategy": "serial",
+  "targets": [
+    {
+      "language": "python",
+      "path": "gen/python/dataclass/plain/dictlike",
+      "typingBackend": "dataclass",
+      "subscriptable": true
+    },
+    {
+      "language": "python",
+      "path": "gen/python/dataclass/plain/class",
+      "typingBackend": "dataclass"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/dataclass/snake/dictlike",
+      "typingBackend": "dataclass",
+      "subscriptable": true,
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/dataclass/snake/class",
+      "typingBackend": "dataclass",
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/dataclass/camel/dictlike",
+      "typingBackend": "dataclass",
+      "subscriptable": true,
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/dataclass/camel/class",
+      "typingBackend": "dataclass",
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/typeddict/plain",
+      "typingBackend": "typed-dictionary"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/typeddict/snake",
+      "typingBackend": "typed-dictionary",
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/typeddict/camel",
+      "typingBackend": "typed-dictionary",
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/basemodel/plain/dictlike",
+      "typingBackend": "pydantic",
+      "subscriptable": true
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/basemodel/plain/class",
+      "typingBackend": "pydantic"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/basemodel/snake/dictlike",
+      "typingBackend": "pydantic",
+      "subscriptable": true,
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/basemodel/snake/class",
+      "typingBackend": "pydantic",
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/basemodel/camel/dictlike",
+      "typingBackend": "pydantic",
+      "subscriptable": true,
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/basemodel/camel/class",
+      "typingBackend": "pydantic",
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/dataclass/plain/dictlike",
+      "typingBackend": "pydantic-dataclass",
+      "subscriptable": true
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/dataclass/plain/class",
+      "typingBackend": "pydantic-dataclass"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/dataclass/snake/dictlike",
+      "typingBackend": "pydantic-dataclass",
+      "subscriptable": true,
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/dataclass/snake/class",
+      "typingBackend": "pydantic-dataclass",
+      "propertyFormat": "snake"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/dataclass/camel/dictlike",
+      "typingBackend": "pydantic-dataclass",
+      "subscriptable": true,
+      "propertyFormat": "camel"
+    },
+    {
+      "language": "python",
+      "path": "gen/python/pydantic/dataclass/camel/class",
+      "typingBackend": "pydantic-dataclass",
+      "propertyFormat": "camel"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+Chef:
+  extends: Person
+  properties:
+    restaurant:
+      type: string
+
+      metadata:
+        description: The restaurant where the chef works.
+
+HeadChef:
+  extends: Chef
+  properties:
+    sousChef:
+      ref: Chef
+
+      metadata:
+        description: |
+          The sous chef who works under the head chef.
+
+          If you are looking for a chef who is not a head chef, 
+          you can find them in the `Chef` type.

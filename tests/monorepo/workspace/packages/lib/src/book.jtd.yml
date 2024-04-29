@@ -1,0 +1,6 @@
+Book:
+  properties:
+    id:
+      type: string
+    title:
+      type: string

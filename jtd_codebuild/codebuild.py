@@ -1,19 +1,37 @@
 from os import getcwd
 from os.path import basename
-from typing import Generator, Callable
-from joblib import Parallel, delayed
+from typing import Callable, Type
 from toolz import pipe
+from toolz.curried import map
 from .utils.fs import resolve
 from .utils.io import write_json
 from .bundler import Bundler
 from .inheritance import InheritanceResolver
 from .component import Component
 from .config.project import get_project_config
+from .config.project.model import Language, Target
 from .generators import JTDCodeGenerator
+from .generators.python import PythonJTDCodeGenerator
+from .generators.typescript import TypescriptJTDCodeGenerator
+from .generators.go import GoJTDCodeGenerator
+from .generators.java import JavaJTDCodeGenerator
+from .generators.ruby import RubyJTDCodeGenerator
+from .generators.rust import RustJTDCodeGenerator
+from .generators.csharp import CSharpJTDCodeGenerator
+
+GENERATORS: dict[Language, Type[JTDCodeGenerator]] = {
+    "python": PythonJTDCodeGenerator,
+    "typescript": TypescriptJTDCodeGenerator,
+    "go": GoJTDCodeGenerator,
+    "java": JavaJTDCodeGenerator,
+    "ruby": RubyJTDCodeGenerator,
+    "rust": RustJTDCodeGenerator,
+    "csharp": CSharpJTDCodeGenerator,
+}
 
 
 class Codebuild(Component):
-    def run(
+    def run(  # noqa: C901
         self,
         path: str,
         cwd: str = getcwd(),
@@ -25,13 +43,13 @@ class Codebuild(Component):
         """
         # Get the path of the target directory
         target_path = resolve(cwd, path)
-        config = get_project_config(cwd)
+        config = get_project_config(target_path)
 
         self.logger.info(f"Start building: {basename(target_path)}")
 
         self.logger.info("Bundling IDL files...")
-        bundler = Bundler(self.logger)
-        inheritance = InheritanceResolver(self.logger)
+        bundler = Bundler(logger=self.logger)
+        inheritance = InheritanceResolver(logger=self.logger)
         bundled_jtd_schema = pipe(
             bundler.bundle(target_path, config),
             inheritance.resolve,
@@ -45,11 +63,26 @@ class Codebuild(Component):
 
         self.logger.info("Generating targets...")
 
-        def generate_targets() -> Generator[Callable[[], None], None, None]:
-            for target in config.targets:
-                generator = JTDCodeGenerator(target_path, logger=self.logger)
+        context = {
+            "cwd": target_path,
+            "schema_path": schema_path,
+            "logger": self.logger,
+        }
 
-                yield lambda: generator.generate(target)
+        def create_generator(target: Target) -> Callable[[], None]:
+            def generate() -> None:
+                generator = GENERATORS[target.language](**context)
+                generator.generate(target)
 
-        Parallel(n_jobs=-1)(delayed(generator)() for generator in generate_targets())
+            return generate
+
+        generators = pipe(config.targets, map(create_generator))
+        if config.targetProcessingStrategy == "serial":
+            for generator in generators:
+                generator()
+        else:
+            from joblib import Parallel, delayed
+
+            Parallel(n_jobs=-1)(delayed(generator)() for generator in generators)
+
         self.logger.success("Done!")

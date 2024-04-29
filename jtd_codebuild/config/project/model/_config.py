@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from ._types import DuplicatePolicy
+from ._types import DuplicatePolicy, TargetProcessingStrategy
 from ._target import (
     PythonTarget,
     TypescriptTarget,
@@ -24,5 +24,6 @@ class ProjectConfig(BaseModel, Subscriptable):
         | RustTarget
         | RubyTarget
     ]
+    targetProcessingStrategy: TargetProcessingStrategy = "parallel"
     jtdBundlePath: str = "gen/schema.jtd.json"
     duplicate: DuplicatePolicy = "error"

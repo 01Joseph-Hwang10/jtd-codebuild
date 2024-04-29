@@ -1,5 +1,5 @@
-from os import mkdir
-from os.path import join, relpath
+from os import makedirs
+from os.path import join, relpath, dirname, exists
 from shutil import copyfile
 from jtd_codebuild.values import CONFIG_NAME
 from .._preset import Preset
@@ -9,15 +9,17 @@ class ModulePreset(Preset):
     def generate(self, cwd: str, **options):
         copy_config = [
             {
-                "src": join(cwd, "templates", CONFIG_NAME),
+                "src": join(dirname(__file__), "templates", CONFIG_NAME),
                 "dest": join(cwd, CONFIG_NAME),
             },
             {
-                "src": join(cwd, "templates", ".gitignore"),
+                "src": join(dirname(__file__), "templates", ".gitignore"),
                 "dest": join(cwd, ".gitignore"),
             },
         ]
         for config in copy_config:
+            if not exists(dirname(config["dest"])):
+                makedirs(dirname(config["dest"]), exist_ok=True)
             copyfile(config["src"], config["dest"])
             self.logger.info(f"Created: {relpath(config['dest'], cwd)}")
 
@@ -26,5 +28,5 @@ class ModulePreset(Preset):
             join(cwd, "gen"),
         ]
         for directory in mkdir_config:
-            mkdir(directory)
+            makedirs(directory, exist_ok=True)
             self.logger.info(f"Created: {relpath(directory, cwd)}")

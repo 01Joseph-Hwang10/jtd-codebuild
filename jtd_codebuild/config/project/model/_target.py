@@ -1,4 +1,4 @@
-from typing import Literal, Self
+from typing import Literal
 from pydantic import BaseModel, model_validator
 from ._types import PropertyFormat, Language
 from jtd_codebuild.utils.mapping import Subscriptable
@@ -25,7 +25,7 @@ class PythonTarget(Target):
     subscriptable: bool = False
 
     @model_validator(mode="after")
-    def check_passwords_match(self) -> Self:
+    def check_passwords_match(self) -> "PythonTarget":
         if self.typingBackend == "typed-dictionary" and self.subscriptable:
             raise ValueError("Typed dictionaries do not support subscriptable")
         return self
@@ -40,13 +40,21 @@ class GoTarget(Target):
     package: str
 
 
+JavaTypingBackend = Literal["jackson"]
+
+
 class JavaTarget(Target):
     language: Literal["java"]
+    typingBackend: JavaTypingBackend = "jackson"
     package: str
+
+
+CSharpTypingBackend = Literal["System.Text.Json"]
 
 
 class CSharpTarget(Target):
     language: Literal["csharp"]
+    typingBackend: CSharpTypingBackend = "System.Text.Json"
     namespace: str
 
 

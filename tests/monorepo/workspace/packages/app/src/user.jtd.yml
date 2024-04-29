@@ -1,0 +1,9 @@
+User:
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    books:
+      elements:
+        ref: Book
