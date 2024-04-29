@@ -37,7 +37,7 @@ class Bundler(Component):
 
         # Bundle reference schemas
         schemas: list[dict] = pipe(
-            config.references,
+            config.references or [],
             map(resolve),
             map(self.bundle),
         )

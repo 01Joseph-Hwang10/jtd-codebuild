@@ -11,7 +11,7 @@ def cli(ctx: Context, path: str):
     if ctx.invoked_subcommand is None:
         BuildCommand().run(path or ".")
     else:
-        ctx.obj = {"path": path}
+        ctx.obj = {"path": path or "."}
 
 
 @cli.command("init")

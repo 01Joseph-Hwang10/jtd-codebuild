@@ -14,7 +14,7 @@ from jtd_codebuild.utils.mapping import Subscriptable
 
 class ProjectConfig(BaseModel, Subscriptable):
     include: list[str]
-    references: list[str]
+    references: list[str] | None = None
     targets: list[
         PythonTarget
         | TypescriptTarget
