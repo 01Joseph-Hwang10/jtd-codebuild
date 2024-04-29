@@ -32,7 +32,7 @@ jobs:
       - id: install-jtd-codegen
         run: source ./ci/install-jtd-codegen
 
-      - run: poetry run poe test jtd_codebuild/tests
+      - run: poetry run poe test tests
 
   lint:
     runs-on: ubuntu-latest
