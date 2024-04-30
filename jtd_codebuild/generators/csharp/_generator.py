@@ -3,7 +3,6 @@ from .._generator import JTDCodeGenerator
 
 
 class CSharpJTDCodeGenerator(JTDCodeGenerator):
-
     def _codegen_command(self, target: CSharpTarget) -> str:
         schema_path = self.get_schema_path()
         output_dir = self.get_target_path(target)

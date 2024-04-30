@@ -5,7 +5,6 @@ from jtd_codebuild.component import Component
 
 class InheritanceResolver(Component):
     def resolve(self, schema: dict) -> dict:
-
         def resolve_inheritance_recursively(
             schema: dict,
             name: str,

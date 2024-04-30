@@ -2,7 +2,6 @@ import abc
 
 
 class Logger(metaclass=abc.ABCMeta):
-
     @abc.abstractmethod
     def debug(self, message: str, *args, **kwargs) -> None:
         pass
