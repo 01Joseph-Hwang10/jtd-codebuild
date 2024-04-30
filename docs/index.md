@@ -16,5 +16,5 @@
     - [Rust](./codegen/config/rust.md)
     - [Typescript](./codegen/config/typescript.md)
 - CLI Reference
-  - `jtd-codebuild <path>`
-  - `jtd-codebuild <path> init [--preset <preset>]`
+  - [`jtd-codebuild <path>`](./cli/build.md)
+  - [`jtd-codebuild <path> init [--preset <preset>]`](./cli/init.md)
