@@ -30,7 +30,8 @@ jobs:
         run: poetry install --all-extras
 
       - id: install-jtd-codegen
-        run: source ./ci/install-jtd-codegen
+        shell: bash
+        run: ./.github/workflows/install-jtd-codegen.bash
 
       - run: poetry run poe test tests
 
