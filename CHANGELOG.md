@@ -2,6 +2,33 @@
 
 
 
+## [1.0.0](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v0.8.0...jtd-codebuild-v1.0.0) (2024-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* jtd-codebuild v1
+
+### Features
+
+* add project config json schema ([b20ed9e](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/b20ed9ef76799b106a3eca0a781c3423ef61d2c0))
+* add python discriminator support ([d723fb9](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/d723fb9dc6c2dbef8431e377dbd13e4670ab39eb))
+* better logging ([3075b83](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/3075b83412f380520c50f37aac8cfff167189157))
+* implement jtd-codebuild ([0d80631](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/0d80631450479eed99a71d09c7ada370bc1bfef1))
+* jtd-codebuild v1 ([284c014](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/284c0148d9473e8fe4811be7ae2e30b1198c0456))
+
+
+### Bug Fixes
+
+* format ([5d1eb7b](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/5d1eb7b82b3ba19bd6291036d57be4710bbe797d))
+* generate functionality ([6221025](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/6221025adf01c335c93d54aee9f355ce08eff8c8))
+
+
+### Documentation
+
+* add codegen docs ([0f62a91](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/0f62a9108c385d1063e7f2b34d41d332700a7c2d))
+* additional docs ([30bcd3d](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/30bcd3df9a80cfe331065c606729e68967f7e6ef))
+
 ## [0.8.0](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v0.7.0...jtd-codebuild-v0.8.0) (2024-04-13)
 
 
