@@ -1,6 +1,6 @@
 # Inheritance
 
-By default, [jtd-codegen] does not support inheritance.
+By default, [JSON Type Definition][jsontypedef.com] does not support inheritance.
 
 But by using `jtd-codebuild`, you can define inheritance between type definitions.
 You can do this by using `extends` keyword like below.
@@ -45,10 +45,11 @@ Chef:
   extends: [Person, MyRestaurantMixin]
 ```
 
-These `extends` properties will be processed by `jtd-codebuild`, and every properties will be merged into one schema.
+If a class or classes are given in the `extends` keyword, the properties of the parent classes are merged into the child class.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > Note that this feature does not programatically inherit the classes in the generated code.
 > It only merges the properties of the parent schemas into the child schema.
 
+[jsontypedef.com]: https://jsontypedef.com/docs/
 [jtd-codegen]: https://jsontypedef.com/docs/jtd-codegen/

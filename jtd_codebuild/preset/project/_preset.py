@@ -5,7 +5,7 @@ from jtd_codebuild.values import CONFIG_NAME
 from .._preset import Preset
 
 
-class ModulePreset(Preset):
+class ProjectPreset(Preset):
     def generate(self, cwd: str, **options):
         copy_config = [
             {

@@ -1,4 +1,4 @@
-# Configuration
+# Project Configuration
 
 `jtd-codebuild <path>` CLI finds the configuration file in the given path and generates the code based on the configuration.
 
@@ -84,3 +84,10 @@ Check each language's configuration for more details.
 - [Ruby](./ruby.md)
 - [Rust](./rust.md)
 - [Typescript](./typescript.md)
+
+## Substitutes
+
+`jtd-codebuild.json` supports the following substitutes.
+
+- `<projectRoot>`: The root directory of the project. It is same as the directory that `jtd-codebuild.json` is in.
+- `<workspaceRoot>`: The root directory of the workspace. `jtd-codebuild` searches for the closest parent which contains `jtd-codebuild-workspace.json` file, and uses that directory as the workspace root. If `jtd-codebuild` fails to find the workspace root, it uses the project root as the workspace root.

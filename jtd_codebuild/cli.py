@@ -19,7 +19,7 @@ def cli(ctx: Context, path: str):
 @click.option(
     "--preset",
     "-p",
-    type=click.Choice(["config", "module", "workspace"]),
+    type=click.Choice(["config", "project", "workspace"]),
     default="config",
 )
 def init(ctx: Context, preset: str):

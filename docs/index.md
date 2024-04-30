@@ -6,7 +6,8 @@
   - IDL
     - [JSON Type Definition](./codegen/idl/json-typedef.md)
     - [Inheritance](./codegen/idl/inheritance.md)
-  - [Configuration](./codegen/config/index.md)
+  - [Workspace Configuration](./codegen/config/workspace.md)
+  - [Project Configuration](codegen/config/project.md)
     - [C#](./codegen/config/csharp.md)
     - [Go](./codegen/config/go.md)
     - [Java](./codegen/config/java.md)
