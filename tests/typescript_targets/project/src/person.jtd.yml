@@ -10,3 +10,10 @@ Person:
 
       metadata:
         description: The name of the person.
+
+    status:
+      enum:
+        - happy
+        - sad
+        - angry
+        - confused

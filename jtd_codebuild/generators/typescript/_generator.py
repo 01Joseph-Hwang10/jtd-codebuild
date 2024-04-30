@@ -21,18 +21,32 @@ class TypescriptJTDCodeGenerator(JTDCodeGenerator):
         propertyFormat = target.propertyFormat
 
         if propertyFormat:
-            convert_schema_definition_keys = compose_left(
+            convert_property_keys = compose_left(
                 curry(convert_keys_case)(propertyFormat),
                 dict,
             )
+
+            def convert_definition_keys_case(definition: dict) -> None:
+                if "discriminator" in definition:
+                    definition["discriminator"] = caseconverter(
+                        propertyFormat,
+                        definition["discriminator"],
+                    )
+                    for case_ in definition["mapping"].values():
+                        convert_definition_keys_case(case_)
+                else:
+                    properties = definition.get("properties", None)
+                    if properties:
+                        definition["properties"] = convert_property_keys(properties)
+                    optionalProperties = definition.get("optionalProperties", None)
+                    if optionalProperties:
+                        definition["optionalProperties"] = convert_property_keys(
+                            optionalProperties
+                        )
+
             for class_name in definitions.keys():
                 definition = definitions[class_name]
-                definition["properties"] = convert_schema_definition_keys(
-                    definition.get("properties", {})
-                )
-                definition["optionalProperties"] = convert_schema_definition_keys(
-                    definition.get("optionalProperties", {})
-                )
+                convert_definition_keys_case(definition)
 
         write_json(jtd_schema_path, jtd_schema)
 

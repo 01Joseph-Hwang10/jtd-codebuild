@@ -1,0 +1,21 @@
+Event:
+  discriminator: eventType
+  mapping:
+    USER_CREATED:
+      properties:
+        id:
+          type: string
+    USER_PAYMENT_PLAN_CHANGED:
+      properties:
+        id:
+          type: string
+        plan:
+          enum:
+            - Free
+            - Paid
+    USER_DELETED:
+      properties:
+        id:
+          type: string
+        softDelete:
+          type: boolean
