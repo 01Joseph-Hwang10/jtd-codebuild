@@ -4,6 +4,7 @@ from jtd_codebuild.component import Component
 from jtd_codebuild.logger import Logger
 from jtd_codebuild.config.project.model import Target
 from jtd_codebuild.utils.fs import safe_mkdir, resolve
+from jtd_codebuild.utils.subprocess import stream_logs
 
 
 class JTDCodeGenerator(Component, metaclass=abc.ABCMeta):
@@ -60,6 +61,7 @@ class JTDCodeGenerator(Component, metaclass=abc.ABCMeta):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
+        stream_logs(process, logger=self.logger, level="debug")
         process.wait()
 
     def get_schema_path(self) -> str:

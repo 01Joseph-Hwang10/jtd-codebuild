@@ -1,5 +1,5 @@
 from os import getcwd
-from os.path import basename
+from os.path import relpath
 from typing import Callable, Type
 from toolz import pipe
 from toolz.curried import map
@@ -45,7 +45,7 @@ class Codebuild(Component):
         target_path = resolve(cwd, path)
         config = get_project_config(target_path)
 
-        self.logger.info(f"Start building: {basename(target_path)}")
+        self.logger.info(f"Start building: {path}")
 
         self.logger.info("Bundling IDL files...")
         bundler = Bundler(logger=self.logger)
@@ -55,11 +55,10 @@ class Codebuild(Component):
             inheritance.resolve,
         )
 
-        self.logger.info("Writing bundled IDL file...")
         schema_path = resolve(target_path, config.jtdBundlePath)
         write_json(schema_path, bundled_jtd_schema)
 
-        self.logger.success("Wrote bundled IDL file...")
+        self.logger.success(f"Wrote bundled IDL file at: {relpath(schema_path, cwd)}")
 
         self.logger.info("Generating targets...")
 
