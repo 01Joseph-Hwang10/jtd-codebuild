@@ -12,7 +12,6 @@ Level: TypeAlias = Literal[
 
 
 class Logger(Subscriptable, metaclass=abc.ABCMeta):
-
     def __init__(self, level: Level = 2) -> None:
         self.level = level
 
