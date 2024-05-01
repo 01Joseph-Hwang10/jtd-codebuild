@@ -11,7 +11,8 @@ The path should be a folder that contains the configuration file, named `jtd-cod
 
 ### `include`
 
-> - Required
+> - Optional
+> - Default: `[]`
 
 The `include` field is an array of directories 
 that contain the JSON Type Definition IDL files.

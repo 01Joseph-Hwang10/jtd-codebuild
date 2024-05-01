@@ -431,11 +431,6 @@
       "type": "string"
     }
   },
-  "required": [
-    "include",
-    "references",
-    "targets"
-  ],
   "title": "ProjectConfig",
   "type": "object"
 }

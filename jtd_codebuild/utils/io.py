@@ -1,7 +1,7 @@
 import json
 from typing import Any
+from os import makedirs
 from os.path import dirname
-from .fs import safe_mkdir
 
 
 def read(file: str) -> str:
@@ -13,7 +13,7 @@ def read(file: str) -> str:
     Returns:
         The file content.
     """
-    safe_mkdir(dirname(file))
+    makedirs(dirname(file), exist_ok=True)
     with open(file, "r") as f:
         return f.read()
 
@@ -25,7 +25,7 @@ def write(file: str, data: str) -> None:
         file: The file name.
         data: The file content.
     """
-    safe_mkdir(dirname(file))
+    makedirs(dirname(file), exist_ok=True)
     with open(file, "w") as f:
         f.write(data)
 

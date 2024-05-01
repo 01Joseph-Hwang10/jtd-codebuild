@@ -54,6 +54,7 @@ jtd-codebuild = "jtd_codebuild.__main__:cli"
 test = "python -m pytest"
 lint = "flake8 jtd_codebuild"
 check-format = "black jtd_codebuild --check"
+generate-project-config-json-schema = "python -m jtd_codebuild.config.project.scripts.generate_project_config_json_schema"
 
 [tool.black]
 line-length = 88

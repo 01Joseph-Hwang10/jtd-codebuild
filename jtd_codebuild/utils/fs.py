@@ -27,15 +27,6 @@ def file_is_json(file: str) -> bool:
     return file.endswith(".json")
 
 
-def safe_mkdir(path: str) -> None:
-    """Create a directory with creating its parent directories if they do not exist.
-
-    Args:
-        path: The directory path.
-    """
-    makedirs(path, exist_ok=True)
-
-
 def safe_open(file_path: str, mode: str) -> TextIOWrapper:
     """Open a file with creating its parent directories if they do not exist.
 
@@ -46,7 +37,7 @@ def safe_open(file_path: str, mode: str) -> TextIOWrapper:
     Returns:
         The opened file.
     """
-    safe_mkdir(dirname(file_path))
+    makedirs(dirname(file_path), exist_ok=True)
     return open(file_path, mode)
 
 

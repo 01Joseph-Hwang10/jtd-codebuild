@@ -1,9 +1,10 @@
 import abc
 import subprocess
+from os import makedirs
 from jtd_codebuild.component import Component
 from jtd_codebuild.logger import Logger
 from jtd_codebuild.config.project.model import Target
-from jtd_codebuild.utils.fs import safe_mkdir, resolve
+from jtd_codebuild.utils.fs import resolve
 from jtd_codebuild.utils.subprocess import stream_logs
 
 
@@ -54,7 +55,7 @@ class JTDCodeGenerator(Component, metaclass=abc.ABCMeta):
         Returns:
             A list of subprocesses created by the code generation.
         """
-        safe_mkdir(self.get_target_path(target))
+        makedirs(self.get_target_path(target), exist_ok=True)
         process = subprocess.Popen(
             self._codegen_command(target),
             shell=True,

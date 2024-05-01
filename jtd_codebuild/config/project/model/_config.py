@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from ._types import DuplicatePolicy, TargetProcessingStrategy
 from ._target import (
     PythonTarget,
@@ -13,8 +13,8 @@ from jtd_codebuild.utils.mapping import Subscriptable
 
 
 class ProjectConfig(BaseModel, Subscriptable):
-    include: list[str]
-    references: list[str] | None = None
+    include: list[str] = Field(default_factory=lambda: [])
+    references: list[str] = Field(default_factory=lambda: [])
     targets: list[
         PythonTarget
         | TypescriptTarget
@@ -23,7 +23,7 @@ class ProjectConfig(BaseModel, Subscriptable):
         | CSharpTarget
         | RustTarget
         | RubyTarget
-    ]
+    ] = Field(default_factory=lambda: [])
     targetProcessingStrategy: TargetProcessingStrategy = "parallel"
     jtdBundlePath: str = "gen/schema.jtd.json"
     duplicate: DuplicatePolicy = "error"
