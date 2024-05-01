@@ -2,6 +2,13 @@
 
 
 
+## [1.0.1](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v1.0.0...jtd-codebuild-v1.0.1) (2024-05-01)
+
+
+### Bug Fixes
+
+* project config type validation ([5282e1a](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/5282e1a5dbfdd1342a34c9a412e3bd3b53b3bec6))
+
 ## [1.0.0](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v0.8.0...jtd-codebuild-v1.0.0) (2024-04-30)
 
 
