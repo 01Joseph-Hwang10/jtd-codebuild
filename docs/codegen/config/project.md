@@ -14,11 +14,16 @@ The path should be a folder that contains the configuration file, named `jtd-cod
 > - Optional
 > - Default: `[]`
 
-The `include` field is an array of directories 
+The `include` field is an array of files or directories
 that contain the JSON Type Definition IDL files.
 
-The program will recursively search for each directories given in the `include` field,
-and collect every `yaml` and `json` files in the directories.
+Glob is supported in the `include` field.
+
+The program will recursively search for given globs and 
+include all the files that match the globs.
+
+Note that it will not include the files that are not `.yml`, `.yaml`, or `.json` files
+even if they match the globs.
 
 ### `references`
 
@@ -33,6 +38,8 @@ as an external dependency.
 For example, schemas included from the `references` field are allowed to have name conflicts with the schemas in the [include](#include) field, if [duplicate](#duplicate) is set to `allow`.
 
 But in contrast, schemas included from the [include](#include) field are not allowed to have name conflicts at any time.
+
+Note that glob is not supported in the `references` field.
 
 ### `jtdBundlePath`
 

@@ -1,6 +1,6 @@
 {
   "include": [
-    "<projectRoot>/src"
+    "<projectRoot>/src/**/*"
   ],
   "references": [],
   "jtdBundlePath": "gen/schema.jtd.json",

@@ -1,8 +1,7 @@
 import yaml
 import json
-import os
 import itertools
-from os.path import join
+from glob import glob
 from typing import Generator, Tuple
 from copy import deepcopy
 from toolz import pipe
@@ -85,15 +84,14 @@ class Bundler(Component):
             roots: list[str],
         ) -> Generator[Tuple[str, dict], None, None]:
             lookup = set()
-            for root, dirs, files in pipe(
+            for files in pipe(
                 roots,
-                map(os.walk),
+                map(curry(glob)(recursive=True)),
                 itertools.chain.from_iterable,
             ):
                 for file in files:
                     if file_is_idl(file):
-                        filepath = join(root, file)
-                        definitions = load_idl(filepath)
+                        definitions = load_idl(file)
                         for name, definition in definitions.items():
                             if name in lookup:
                                 raise ValueError(
