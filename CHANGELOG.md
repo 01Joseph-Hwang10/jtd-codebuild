@@ -2,6 +2,13 @@
 
 
 
+## [1.1.0](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v1.0.1...jtd-codebuild-v1.1.0) (2024-05-10)
+
+
+### Features
+
+* add glob support ([fb2ab03](https://github.com/01Joseph-Hwang10/jtd-codebuild/commit/fb2ab03ce15699685c8f391d0e2e82eab08734c4))
+
 ## [1.0.1](https://github.com/01Joseph-Hwang10/jtd-codebuild/compare/jtd-codebuild-v1.0.0...jtd-codebuild-v1.0.1) (2024-05-01)
 
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jtd-codebuild"
-version = "1.0.1"
+version = "1.1.0"
 description = "Tool for generating language specific schemas and interfaces code from JSON Type Definition IDL files in yaml format. Powered by jtd-codegen."
 classifiers = [
   'Development Status :: 5 - Production/Stable',
